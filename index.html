@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea validation</title>
+</head>
+<body style="background-image: url(./images/gg1.jpg); justify-items: center; margin-top: 250px;">
+    
+    
+
+<h1>Message 200 words maximum</h1>
+
+<textarea id="textbox" rows="10" placeholder="Enter your message" cols="50"></textarea> <br>
+
+<span id="error" style="color: red;display: none;">max limit reached</span>
+
+<p id="charcount">0/200</p>
+
+
+<script>
+// selecting elements
+let textbox = document.getElementById("textbox")
+let error = document.getElementById("error")
+let charcount = document.getElementById("charcount")
+let maxchar =200
+
+// giving function
+
+
+textbox.addEventListener("input",function(){
+
+    let textcount=textbox.value.length
+    charcount.textContent=textcount+"/"+maxchar
+   
+    if(textcount>maxchar)
+{
+    error.style.display="block"
+    textbox.value =textbox.value.substring(0,maxchar)
+
+}
+else{
+    error.style.display="none"
+}
+})
+
+
+</script>
+
+
+
+</body>
+</html>
